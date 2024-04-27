@@ -7,17 +7,12 @@ interface Props {
 
 const StepThree: React.FC<Props> = (props: Props) => {
     const {userNameInfo, age} = props;
+
     return (
         <div>
             <h3>InfoReview:</h3>
-            <div>
-                <h4>Name:</h4>
-                <p>{userNameInfo.fName} {userNameInfo.lName}</p>
-            </div>
-            <div>
-                <h4>Age:</h4>
-                <p>{age}</p>
-            </div>
+            <h5>Name: {userNameInfo.fName} {userNameInfo.lName}</h5>
+            <h5>Age: {age}</h5>
         </div>
     );
 }

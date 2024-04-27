@@ -11,7 +11,7 @@ interface Props {
 const StepTwo: React.FC<Props> = (props: Props) => {
     const {initialAge, setAge} = props;
 
-    let onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setAge(parseInt(e.target.value));
     };
 

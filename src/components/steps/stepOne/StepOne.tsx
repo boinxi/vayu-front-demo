@@ -12,12 +12,13 @@ interface Props {
 const StepOne: React.FC<Props> = (props: Props) => {
     const {initialUserInfo, setUserInfo} = props;
 
-    let onFNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onFNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserInfo({fName: e.target.value, lName: initialUserInfo.lName});
     };
-    let onLNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onLNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setUserInfo({fName: initialUserInfo.fName, lName: e.target.value});
     };
+
     return (
         <div className={'container'}>
             <h3>Step One: Enter Your Name</h3>

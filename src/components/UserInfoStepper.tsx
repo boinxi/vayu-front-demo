@@ -34,28 +34,19 @@ const UserInfoStepper: React.FC = () => {
             return;
         }
 
-        if (currentStep < steps.length - 1) {
-            setCurrentStep(currentStep + 1);
-        }
+        if (currentStep < steps.length - 1) setCurrentStep(currentStep + 1);
     };
 
     const handleBack = () => {
-        if (currentStep > 0) {
-            setCurrentStep(currentStep - 1);
-        }
+        if (currentStep > 0) setCurrentStep(currentStep - 1);
     };
 
-    const handleFinish = () => {
-        const result = saveUserInfoToLocalStorage(userInfo.fName, userInfo.lName, age);
-
-        alert(result ?? 'Form Submitted');
-
-    };
+    const handleFinish = () => alert(saveUserInfoToLocalStorage(userInfo.fName, userInfo.lName, age) ?? 'Form Submitted');
 
     const isNextEnabled = () => {
         if (currentStep === 0) return stepOneValidator(userInfo);
         if (currentStep === 1) return stepTwoValidator(age);
-        console.log('currentStep', currentStep)
+
         return true;
     };
 
