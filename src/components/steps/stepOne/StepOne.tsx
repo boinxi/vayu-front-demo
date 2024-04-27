@@ -1,6 +1,6 @@
 import React, {Dispatch, SetStateAction} from "react";
-import UserNameInfo from "../types/userNameInfo";
-import '../css/StepOne.css';
+import UserNameInfo from "../../../types/userNameInfo";
+import './StepOne.css';
 
 export const stepOneValidator = (userInfo: UserNameInfo): boolean => userInfo.fName.length > 0 && userInfo.lName.length > 0;
 

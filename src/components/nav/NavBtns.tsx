@@ -1,4 +1,4 @@
-import '../css/NavBtns.css';
+import './NavBtns.css';
 
 interface Props {
     currentStep: number;

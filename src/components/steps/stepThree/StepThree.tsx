@@ -1,4 +1,4 @@
-import UserNameInfo from "../types/userNameInfo";
+import UserNameInfo from "../../../types/userNameInfo";
 
 interface Props {
     userNameInfo: UserNameInfo;

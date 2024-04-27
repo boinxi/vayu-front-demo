@@ -1,11 +1,11 @@
 import {useState} from "react";
-import StepOne, {stepOneValidator} from "./StepOne";
-import StepTwo, {stepTwoValidator} from "./StepTwo";
-import StepThree from "./StepThree";
-import NavBtns from "./NavBtns";
+import StepOne, {stepOneValidator} from "./steps/stepOne/StepOne";
+import StepTwo, {stepTwoValidator} from "./steps/stepTwo/StepTwo";
+import StepThree from "./steps/stepThree/StepThree";
+import NavBtns from "./nav/NavBtns";
 import UserNameInfo from "../types/userNameInfo";
 import {saveUserInfoToLocalStorage} from "../services/localStorageService";
-import '../css/UserInfoStepper.css';
+import './UserInfoStepper.css';
 
 
 const UserInfoStepper: React.FC = () => {

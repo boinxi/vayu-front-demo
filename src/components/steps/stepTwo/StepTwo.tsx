@@ -1,5 +1,5 @@
 import React from "react";
-import '../css/StepTwo.css'
+import './StepTwo.css'
 
 export const stepTwoValidator = (age: number): boolean => age >= 0 && age <= 120;
 
