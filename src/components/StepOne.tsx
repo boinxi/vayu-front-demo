@@ -1,5 +1,6 @@
-import React, {Dispatch, SetStateAction, useState} from "react";
+import React, {Dispatch, SetStateAction} from "react";
 import UserNameInfo from "../types/userNameInfo";
+import '../css/StepOne.css';
 
 export const stepOneValidator = (userInfo: UserNameInfo): boolean => userInfo.fName.length > 0 && userInfo.lName.length > 0;
 
@@ -11,36 +12,35 @@ interface Props {
 const StepOne: React.FC<Props> = (props: Props) => {
     const {initialUserInfo, setUserInfo} = props;
 
-    const [fName, setFName] = useState(initialUserInfo.fName); // TODO: maybe i dont need this state
-    const [lName, setLName] = useState(initialUserInfo.lName);
-
+    let onFNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setUserInfo({fName: e.target.value, lName: initialUserInfo.lName});
+    };
+    let onLNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setUserInfo({fName: initialUserInfo.fName, lName: e.target.value});
+    };
     return (
-        <div>
-            <h1>Step One: Enter Your Name</h1>
+        <div className={'container'}>
+            <h3>Step One: Enter Your Name</h3>
             <div>
                 <label htmlFor="fName">First Name:</label>
                 <input
+                    className={'input'}
                     type="text"
                     id="fName"
                     name="fName"
                     value={initialUserInfo.fName}
-                    onChange={e => {
-                        setUserInfo({fName: e.target.value, lName});
-                        setFName(e.target.value);
-                    }}
+                    onChange={onFNameChange}
                 />
             </div>
             <div>
                 <label htmlFor="lName">Last Name:</label>
                 <input
+                    className={'input'}
                     type="text"
                     id="lName"
                     name="lName"
                     value={initialUserInfo.lName}
-                    onChange={e => {
-                        setUserInfo({fName, lName: e.target.value});
-                        setLName(e.target.value);
-                    }}
+                    onChange={onLNameChange}
                 />
             </div>
         </div>

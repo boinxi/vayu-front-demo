@@ -10,11 +10,12 @@ button {
     transition: background-color 0.3s;
 }
 
-button:hover {
+button:hover:not(:disabled) {
     background-color: #0056b3;
 }
 
 button:disabled {
     background-color: #cccccc;
+    color: black;
     cursor: not-allowed;
 }

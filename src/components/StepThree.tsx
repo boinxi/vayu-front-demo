@@ -9,13 +9,13 @@ const StepThree: React.FC<Props> = (props: Props) => {
     const {userNameInfo, age} = props;
     return (
         <div>
-            <h1>InfoReview:</h1>
+            <h3>InfoReview:</h3>
             <div>
-                <h2>Name:</h2>
+                <h4>Name:</h4>
                 <p>{userNameInfo.fName} {userNameInfo.lName}</p>
             </div>
             <div>
-                <h2>Age:</h2>
+                <h4>Age:</h4>
                 <p>{age}</p>
             </div>
         </div>

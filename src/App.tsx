@@ -21,7 +21,8 @@ function App() {
                 </button>
             </header>
             {
-                isStepperOpen && <div className="overlay" onClick={closeStepper}>
+                isStepperOpen &&
+                <div className="overlay" onClick={closeStepper}>
                     <div className="stepper-popup" onClick={e => e.stopPropagation()}>
                         <UserInfoStepper/>
                     </div>

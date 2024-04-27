@@ -5,6 +5,7 @@ import StepThree from "./StepThree";
 import NavBtns from "./NavBtns";
 import UserNameInfo from "../types/userNameInfo";
 import {saveUserInfoToLocalStorage} from "../services/localStorageService";
+import '../css/UserInfoStepper.css';
 
 
 const UserInfoStepper: React.FC = () => {
@@ -19,7 +20,6 @@ const UserInfoStepper: React.FC = () => {
         <StepTwo initialAge={age} setAge={setAge}/>,
         <StepThree userNameInfo={userInfo} age={age}/>
     ];
-
 
     const handleNext = () => {
         // vaildate 1st step
@@ -46,14 +46,23 @@ const UserInfoStepper: React.FC = () => {
     };
 
     const handleFinish = () => {
-        saveUserInfoToLocalStorage(userInfo.fName, userInfo.lName, age);
-        alert('Form Submitted: ' + userInfo.fName + " " + userInfo.lName + age);
+        const result = saveUserInfoToLocalStorage(userInfo.fName, userInfo.lName, age);
+
+        alert(result ?? 'Form Submitted');
+
+    };
+
+    const isNextEnabled = () => {
+        if (currentStep === 0) return stepOneValidator(userInfo);
+        if (currentStep === 1) return stepTwoValidator(age);
+        console.log('currentStep', currentStep)
+        return true;
     };
 
 
     return (
-        <div>
-            <h1>User Info Stepper</h1>
+        <div className={'stepperContainer'}>
+            <h1 className={'title'}>User Info Stepper</h1>
             {steps[currentStep]}
             <NavBtns
                 currentStep={currentStep}
@@ -61,6 +70,7 @@ const UserInfoStepper: React.FC = () => {
                 handleNext={handleNext}
                 handleFinish={handleFinish}
                 isLastStep={currentStep === steps.length - 1}
+                isNextEnabled={isNextEnabled()}
             />
         </div>
     );

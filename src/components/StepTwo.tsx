@@ -1,4 +1,5 @@
 import React from "react";
+import '../css/StepTwo.css'
 
 export const stepTwoValidator = (age: number): boolean => age >= 0 && age <= 120;
 
@@ -10,17 +11,20 @@ interface Props {
 const StepTwo: React.FC<Props> = (props: Props) => {
     const {initialAge, setAge} = props;
 
+    let onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setAge(parseInt(e.target.value));
+    };
+
     return (
         <div>
-            <h1>Step Two</h1>
+            <h3>Step Two</h3>
             <div>
                 <label>Age:</label>
                 <input
+                    className={'input'}
                     type="number"
                     value={initialAge}
-                    onChange={e => {
-                        setAge(parseInt(e.target.value));
-                    }}
+                    onChange={onChange}
                 />
             </div>
         </div>
